@@ -9,7 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ProductCategory {
+@Table(name = "product_category")
+public class Category {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;

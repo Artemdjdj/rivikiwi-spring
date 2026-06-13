@@ -10,23 +10,23 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
-    private final ProductCategoryRepository repository;
+    private final CategoryRepository repository;
 
 //    public CategoryService(ProductCategoryRepository repository){
 //        this.repository = repository;
 //    }
 
     public List<CategoryResponse> list(){
-        List<ProductCategory> eProductCategories = repository.findAll();
+        List<Category> eProductCategories = repository.findAll();
         List<CategoryResponse> responseCategories = new ArrayList<>();
-        for (ProductCategory e_prod_cat: eProductCategories){
+        for (Category e_prod_cat: eProductCategories){
             responseCategories.add(new CategoryResponse(e_prod_cat.getId(), e_prod_cat.getName(), e_prod_cat.getSlug()));
         }
         return responseCategories;
     }
 
     public CategoryResponse create(String name, String slug){
-        ProductCategory productCategory = new ProductCategory();
+        Category productCategory = new Category();
         productCategory.setName(name);
         productCategory.setSlug(slug);
         var prodCatSaved = repository.save(productCategory);
