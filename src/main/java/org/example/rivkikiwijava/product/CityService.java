@@ -1,6 +1,5 @@
 package org.example.rivkikiwijava.product;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.rivkikiwijava.product.dto.CityRequest;
 import org.example.rivkikiwijava.product.dto.CityResponse;
@@ -40,7 +39,7 @@ public class CityService {
         City city = new City();
         city.setName(cityRequest.name());
         city.setSlug(cityRequest.slug());
-        return toResponse(city);
+        return toResponse(repository.save(city));
     }
 
     public CityResponse update(String slug, CityRequest cityRequest){
@@ -49,7 +48,7 @@ public class CityService {
                         HttpStatus.NOT_FOUND, "Город не найден: " + slug));
         city.setName(cityRequest.name());
         city.setSlug(cityRequest.slug());
-        return toResponse(city);
+        return toResponse(repository.save(city));
     }
 
     public void delete(String slug){
