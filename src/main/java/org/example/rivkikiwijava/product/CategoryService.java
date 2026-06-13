@@ -10,7 +10,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
-    private ProductCategoryRepository repository;
+    private final ProductCategoryRepository repository;
+
+//    public CategoryService(ProductCategoryRepository repository){
+//        this.repository = repository;
+//    }
 
     public List<CategoryResponse> list(){
         List<ProductCategory> eProductCategories = repository.findAll();

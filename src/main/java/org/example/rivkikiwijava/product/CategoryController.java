@@ -12,6 +12,10 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService service;
 
+//    public CategoryController(CategoryService service){
+//        this.service = service;
+//    }
+
     @GetMapping
     public List<CategoryResponse> list(){
         return service.list();
